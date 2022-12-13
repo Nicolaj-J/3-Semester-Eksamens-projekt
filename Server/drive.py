@@ -23,16 +23,15 @@ gauth.SaveCredentialsFile("credentials.txt")
 drive = GoogleDrive(gauth)
 
 def downlaod_files():
-    path = f"{os.getcwd()}/pic"
+    path = f"{os.getcwd()}/billeder"
     os.chdir(path)
-    folder_id = get_folder_id("Upload") 
+    folder_id = get_folder_id("Uploads") 
     file_list = drive.ListFile({"q": f"'{folder_id}' in parents and trashed=false"}).GetList()
     for file in file_list:
         print("title: %s, id: %s" % (file["title"], file["id"]))
         file.GetContentFile(file['title'])
 
-def backup():
-    path = f"{os.getcwd()}/pic"
+def backup(path):
     folder_id = get_folder_id("Backup")
     for x in os.listdir(path):
         print(f"Uploading {x}")
@@ -45,7 +44,7 @@ def backup():
     delete_used()
 
 def delete_used():
-    folder_id = get_folder_id("Upload") 
+    folder_id = get_folder_id("Uploads") 
     file_list = drive.ListFile({"q": f"'{folder_id}' in parents and trashed=false"}).GetList()
     for file in file_list:
         print("Deleting title: %s, id: %s" % (file["title"], file["id"]))
