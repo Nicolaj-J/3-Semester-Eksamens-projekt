@@ -1,4 +1,3 @@
-import numpy
 import os
 import shutil
 import datetime
@@ -21,7 +20,7 @@ except OSError as e:
     print("Error: %s : %s" % (cache_path, e.strerror))
 for f in os.listdir(output_path):
     os.remove(os.path.join(output_path, f))
-drive.downlaod_files()
+drive.download_files()
 model_name = f"Model_{date.day}-{date.month}-{date.year}_{date.hour}-{date.minute}"
 zip_folder = f"{model_path}/{model_name}"
 os.mkdir(zip_folder)

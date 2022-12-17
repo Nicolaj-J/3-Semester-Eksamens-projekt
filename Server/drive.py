@@ -22,7 +22,7 @@ gauth.SaveCredentialsFile("credentials.txt")
 # drive object created with the established
 drive = GoogleDrive(gauth)
 
-def downlaod_files():
+def download_files():
     path = f"{os.getcwd()}/billeder"
     os.chdir(path)
     folder_id = get_folder_id("Uploads") 

@@ -1,10 +1,4 @@
 import bpy
-import numpy
-import os
-import shutil
-print("-"*10)
-print(os.getcwd())
-print("-"*10)
 file_loc = "G:/3_semester_projekt_final/Blender_conversion/files/texturedMesh.obj"
 file_des = "G:/3_semester_projekt_final/Game/roaming-ralph/models/ralph.egg"
 #imported_object = bpy.ops.import_scene.obj(filepath=file_loc)
