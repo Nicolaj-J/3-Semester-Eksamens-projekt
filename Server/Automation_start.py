@@ -1,8 +1,9 @@
 import os
 import shutil
 import datetime
+#import drive
+
 date = datetime.datetime.now()
-import drive
 parent_path = os.getcwd()
 image_path = f"{parent_path}/Billeder"
 cache_path = f"{parent_path}/Intimediary_files"
@@ -20,7 +21,7 @@ except OSError as e:
     print("Error: %s : %s" % (cache_path, e.strerror))
 for f in os.listdir(output_path):
     os.remove(os.path.join(output_path, f))
-drive.download_files()
+#drive.download_files()
 model_name = f"Model_{date.day}-{date.month}-{date.year}_{date.hour}-{date.minute}"
 zip_folder = f"{model_path}/{model_name}"
 os.mkdir(zip_folder)
@@ -48,7 +49,7 @@ cmdLine = f"blender -b --python G:/3_semester_projekt_final/Blender_automation.p
 os.system(cmdLine)
 shutil.copy(blender_file_des, f"{zip_folder}/ralph.egg")
 shutil.make_archive(f"{zipped_models}/{model_name}", 'zip', zip_folder)
-drive.backup(f"{zipped_models}")
+#drive.backup(f"{zipped_models}")
 try:
     for f in os.listdir(zipped_models):
         os.remove(f"{zipped_models}/{f}")
